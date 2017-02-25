@@ -101,11 +101,11 @@ let sortedArrayOfIntegers = [1, 2, 3, 4, 5, 6, 7];
 console.log(treeProblems.createMinBalancedSearchTree(0, sortedArrayOfIntegers.length - 1, sortedArrayOfIntegers));
 console.log(treeProblems.isBalanced(node));
 console.log(JSON.stringify(treeProblems.DlinkListOutOFBinaryTree(node)));
-//bst 
+//bst
 //console.log(treeProblems.isBinaryTreeBST(treeProblems.createMinBalancedSearchTree(0, sortedArrayOfIntegers.length - 1, sortedArrayOfIntegers)));
 let trickynode = new TreeNode(20);
 trickynode.left = new TreeNode(10) ;
 trickynode.right = new TreeNode(30);
 trickynode.left.right = new TreeNode(25);
 //non bst
-console.log(treeProblems.isBinaryTreeBST(trickynode,Number.NEGATIVE_INFINITY,Number.NEGATIVE_INFINITY));
+console.log(treeProblems.isBinaryTreeBST(trickynode,Number.NEGATIVE_INFINITY,Number.POSITIVE_INFINITY));

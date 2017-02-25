@@ -37,6 +37,7 @@ function _merge(a, b) {
   while (b.length != 0) {
     c.push(b.shift());
   }
+  console.log(JSON.stringify(c));
   return c;
 }
 module.exports = mergeSort;
