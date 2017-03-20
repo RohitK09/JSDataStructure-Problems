@@ -1,3 +1,4 @@
+
 let BFS = function(graph,node){
     let queue = [];
     //enqueues the node
@@ -19,3 +20,4 @@ let BFS = function(graph,node){
 }
 
 module.exports = BFS;
+

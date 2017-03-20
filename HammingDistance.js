@@ -1,4 +1,5 @@
 
+
 /**
  * Implementaion to find if a number can be expressed as x^y
  * x is assumed to be >=0
@@ -36,3 +37,4 @@ console.log(canBeExpressedAsXraisedToY(67));
 console.log(canBeExpressedAsXraisedToY(64));
 console.log(canBeExpressedAsXraisedToY(81));
 console.log(hammingDistance(97,63));
+>>>>>>> 7c85c09be9ca72ece98376e0b6a999a5cb913873

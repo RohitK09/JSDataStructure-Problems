@@ -1,3 +1,4 @@
+
 /**
  *Implementation Of Stack in JavaScript ES6
  */
@@ -36,3 +37,4 @@ browserHistory.push('test3');
 console.log(browserHistory.pop());
 
 //Implementation of Push Operation
+>>>>>>> 7c85c09be9ca72ece98376e0b6a999a5cb913873
