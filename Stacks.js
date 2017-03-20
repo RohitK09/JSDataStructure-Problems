@@ -21,7 +21,7 @@ class Stack {
             delete this._storage[this._position];
             this._position--;
             return val;
-           
+
         }
 
     }
@@ -35,4 +35,4 @@ browserHistory.push('test2');
 browserHistory.push('test3');
 console.log(browserHistory.pop());
 
-//Implementation of Push Operation 
+//Implementation of Push Operation

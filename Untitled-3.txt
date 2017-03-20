@@ -1,0 +1,21 @@
+function getArrayIndex(arr) {
+  //
+  var start = 0 ;
+  var end = arr.length-1;
+
+ while(start<=end){
+   var mid = Math.floor((start+end)/2);
+    if(arr[mid]===mid){
+          return mid;
+    }
+    if(arr[mid]>mid){
+       end = mid-1 ;
+    }
+    else{
+       start = mid +1;
+    }
+ }
+   return -1;
+}
+[0]
+pramp();

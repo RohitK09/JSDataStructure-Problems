@@ -124,17 +124,17 @@ class StringProblem {
 
     if (s === null) return null;
 
-    for (var i = 0 ;i < s.length;i++) {
+    for (var i = 0; i < s.length; i++) {
 
-      if (list.indexOf(s[i]) !==-1 ) {
+      if (list.indexOf(s[i]) !== -1) {
 
-       list = list.slice(list.indexOf(s[i]) + 1);
+        list = list.slice(list.indexOf(s[i]) + 1);
         list.push(s[i]);
         console.log("intermediate list : ", list);
       }
       else {
         list.push(s[i]);
-            console.log("intermediate list : ", list);
+        console.log("intermediate list : ", list);
       }
       if (list.length > max) {
         max = list.length;
@@ -147,6 +147,41 @@ class StringProblem {
   };
 
 }
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function(a, b) {
+    let carry = 0;
+    let sum = '';
+    lenA = a.length;
+    lenB = b.length;
+    if(lenA>lenB){
+        for(let i=lenB;i<lenA;i++){
+            b='0'.concat(b);
+        }
+    }else if(lenB>lenA){
+        for(let i=lenA;i<lenB;i++){
+            a='0'.concat(a);
+        }
+    }
+    console.log("a,b",a.length,b.length);
+    for(var i=lenA-1;i>-1;i--){
+        console.log('sum',sum);
+        sum =(a[i] ^ b[i] ^ carry ).toString().concat (sum);
+                 console.log('sum',sum);
+        carry = (parseInt(a[i])& parseInt(b[i]))| (parseInt(b[i])&carry)|(carry & parseInt(a[i]));
+         console.log('carry inside',carry);
+
+        lenA--;
+    }
+    console.log('carry',carry)
+    if(carry==1){
+        sum = '1'+sum;
+    }
+   return sum.toString();
+};
 
 
 let strProblem1 = new StringProblem(' ');
@@ -159,7 +194,8 @@ console.log(strProblem1.longestPalindromicSubstringDP(testStr));
 console.log(strProblem1.stringHasUniqueCharsWithAdditonalDataStrutures('APLE'));
 console.log(strProblem1.lengthOfLongestSubstring("abcabcbb"));
 console.log(strProblem1.lengthOfLongestSubstring("pwwkew"));
- console.log(strProblem1.lengthOfLongestSubstring("dvdf"));
- console.log(strProblem1.lengthOfLongestSubstring("ohvhjdml"));
+console.log(strProblem1.lengthOfLongestSubstring("dvdf"));
+console.log(strProblem1.lengthOfLongestSubstring("ohvhjdml"));
 console.log(strProblem1.lengthOfLongestSubstring("bbbbb"));
+console.log(addBinary("011","1"));
 

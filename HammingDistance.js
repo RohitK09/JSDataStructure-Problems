@@ -1,7 +1,7 @@
 
 /**
  * Implementaion to find if a number can be expressed as x^y
- * x is assumed to be >=0 
+ * x is assumed to be >=0
  */
 
 var canBeExpressedAsXraisedToY = function (n) {
@@ -17,7 +17,7 @@ var canBeExpressedAsXraisedToY = function (n) {
 
 var hammingDistance = function(x, y) {
 
-    
+
     let result = x^y;
     let resultStr =  result.toString(2);
     let count =0;
@@ -26,9 +26,9 @@ var hammingDistance = function(x, y) {
             count++;
         }
         else {}
-        
+
     }
-     return count;   
+     return count;
 };
 
 console.log(canBeExpressedAsXraisedToY(4));

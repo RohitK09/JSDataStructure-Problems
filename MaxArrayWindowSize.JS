@@ -41,7 +41,7 @@ function findMaxArrayOfWindowSize(listOfnumbers, windowSize) {
     for (var j = windowSize; j < listOfnumbers.length; j++) { //pop elements out when the curr element is greater than previous
         maxArray.push(listOfnumbers[q[0]]);
         while (q.length != 0 && listOfnumbers[j] > listOfnumbers[q[q.length - 1]]) {
-            q.pop();
+            q.pop(); //remove from end of the array
 
         }
         while (q.length !== 0 && j - q[0] === windowSize) { // pop element out from beginning when , window size is exceeded.

@@ -1,19 +1,19 @@
 const  DFSSearch= require('./DFS');
 const BFS = require('./BFS');
 /**
- * @description: outputs a new graph , in form of adjancency list 
- * inspired from https://medium.freecodecamp.com/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837#.4voil9gg6 
+ * @description: outputs a new graph , in form of adjancency list
+ * inspired from https://medium.freecodecamp.com/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837#.4voil9gg6
  */
 let makeGraphs = () => {
     let graph = {};
-    
-    //add vertex 
+
+    //add vertex
     graph.addVertex = (node) => {
         graph[node] = { edges: {} };
         graph[node].isVisited = false;
-        graph[node].value = node; 
+        graph[node].value = node;
     }
-    //addedges 
+    //addedges
     graph.addEdge = (startNode, endNode) => {
         if (graph.contains(startNode) && graph.contains(endNode)) {
 
