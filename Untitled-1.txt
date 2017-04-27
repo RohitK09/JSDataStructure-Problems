@@ -1,0 +1,49 @@
+list1 -->aaa,bbb,ddd,xyxz,... 
+list2-->bbb,ccc,ccc,hkp,.. 
+list3> ddd,eee,,ffff,lmn,.. 
+
+Inside a list the words are sorted 
+I want to remove words which are repeated across the list and print in sorted order 
+If the words are repeated in same list its valid. 
+In the above case 
+it should print aaa-->ccc-->ccc-->eee--->fff-->glk-->hkp-->lmn-->xyxz
+
+{
+  'Key1': '1',
+  'Key2': {
+    'a' : '2',
+    'b' : '3',
+    'c' : {
+      'd' : '3',
+      'e' : '1'
+      }
+    }
+}
+
+{
+  'Key1': '1',
+  'Key2.a': '2',
+  'Key2.b' : '3',
+  'Key2.c.d' : '3',
+  'Key2.c.e' : '1'
+}
+'1'
+
+let mapofkeys = new Map(); 
+function flatten(dict,prefixTxt){
+  if(dict.length ===0){
+     return ;
+  }
+  for (var i =0; i<dict.length;i++){
+       
+        if(typeOf(dict[i].getVal) ='string' ){
+          
+           mapofkeys.add(prefixtext+'.'+dict[i].key,dict[i].getVal);
+        }else{
+           prefixTxt = '.'+dict[i];  
+           flatten(dict[i],prefixTxt);
+        }
+  }
+   
+   return mapOfkEYS;
+}

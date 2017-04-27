@@ -32,3 +32,19 @@ var maxSubArrayLen = function(nums, k) {
    return max;
 };
 
+let removeDups = function(arr){
+  if(arr.length>1){
+    let prev = arr[0];
+    let len = arr.length;
+    let lastFoundIdx = 0;
+  for(let i =1;i<len;i++)
+  {
+    if(arr[i] ===arr[i-1]){
+      arr[i] = arr[++i];
+      arr[]
+    }
+  }
+}
+return arr;
+}
+console.log(removeDups([1,2,2,3]));

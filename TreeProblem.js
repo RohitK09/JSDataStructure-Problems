@@ -108,14 +108,111 @@ var lowestCommonAncestor = function(root, p, q) {
   }
 }
 
+let _findDistaceFromRoot  = function _findDistaceFromRoot(root,m,minMax)
+    {
+        let q = [];
+        let hd = 0;
+        if(root===null){
+            return ;
+        }
+        q.push([root,hd]);
+        while(q.length!==0){
+            let node = q.shift();
+            if(node[0]!==null){
+               let val = node[0].val;
+                hd = node[1];
+            if(hd >minMax[1]){
+                minMax[1]= hd;
+            }
+            if(hd <minMax[0]){
+                minMax[0] =hd;
+            }
+            if(m.has(hd)){
+                let valOfNode = m.get(hd);
+                valOfNode.push(val);
+                m.set(hd,valOfNode);
 
+            }
+            else{
+                 m.set(hd,[val]);
+
+            }
+            if(node.left!==null || undefined){
+
+                q.push([node[0].left,hd-1]);
+            }
+            if(node.right!==null||undefined){
+
+                q.push([node[0].right,hd+1]);
+                console.log('q',q)
+            }
+        }
+           }
+
+
+}
+var verticalOrder = function(root) {
+    let m = new Map();
+    let minMax =[0,0];
+    _findDistaceFromRoot(root,m,minMax);
+    let result = [];
+    console.log(minMax);
+    for(var i = minMax[0]; i<= minMax[1]; i++){
+       result.push(m.get(i));
+    }
+    return result;
+};
+
+var inorderTraversal = function(root) {
+    if(root ===null ){
+        return root;
+    }
+    else{
+    let st =[];
+    let res = [];
+    while(true){
+       if(root!==null||undefined){
+            st.push(root);
+            root = root.left;
+        }
+        if(st.length===0){
+            break;
+        }
+
+        root = st.pop();
+        res.push(root.val);
+        root = root.right;
+
+    }
+       return res;
+    }
+};
+/*
+  {2, 3, 4, 7, 17, 19, 21, 35, 89} and
+   x is 19,the biggest key that is smaller than x is 17.
+*/
+
+function findBiggestElemSmallerThanX(root,key){
+    while(root!= null){
+      if(root.val<x){
+        result = root.val;
+        root = root.right;
+      }
+      else{
+        root = root.left;
+      }
+    }
+    return root;
+}
 //treeProblems.lca = lca;
 treeProblems.isBalanced = isBalanced;
 treeProblems.createMinBalancedSearchTree = createMinBalancedSearchTree;
 treeProblems.DlinkListOutOFBinaryTree = DlinkListOutOFBinaryTree;
 treeProblems.isBinaryTreeBST = isBinaryTreeBST;
-treeProblems.findMinSumBST = findMinSumBST;
+//treeProblems.findMinSumBST = findMinSumBST;
 module.exports = treeProblems;
+
+
 
 
 let node = new TreeNode(0);
@@ -139,5 +236,10 @@ let nodeA = new TreeNode(1);
 let nodeB = new TreeNode(2);
 let nodeMinSum = treeProblems.createMinBalancedSearchTree(0, sortedArrayOfIntegers.length - 1, sortedArrayOfIntegers)
 console.log(lowestCommonAncestor(node, nodeA, nodeB));
-console.log(treeProblems.findMinSumBST(nodeMinSum));
 console.log(minDiff);
+console.log(verticalOrder(nodeMinSum));
+let nodeTest = new TreeNode(1);
+nodeTest.left = null;
+nodeTest.right = new TreeNode(2);
+nodeTest.right.left = new TreeNode(3);
+console.log(inorderTraversal(nodeTest));

@@ -128,7 +128,7 @@ class StringProblem {
 
       if (list.indexOf(s[i]) !== -1) {
 
-        list = list.slice(list.indexOf(s[i]) + 1);
+        list = list.slice(list.indexOf(s[i]) + 1); //getting the index of first occurence of repeating character
         list.push(s[i]);
         console.log("intermediate list : ", list);
       }
@@ -152,37 +152,103 @@ class StringProblem {
  * @param {string} b
  * @return {string}
  */
-var addBinary = function(a, b) {
-    let carry = 0;
-    let sum = '';
-    lenA = a.length;
-    lenB = b.length;
-    if(lenA>lenB){
-        for(let i=lenB;i<lenA;i++){
-            b='0'.concat(b);
-        }
-    }else if(lenB>lenA){
-        for(let i=lenA;i<lenB;i++){
-            a='0'.concat(a);
-        }
+var addBinary = function (a, b) {
+  let carry = 0;
+  let sum = '';
+  lenA = a.length;
+  lenB = b.length;
+  if (lenA > lenB) {
+    for (let i = lenB; i < lenA; i++) {
+      b = '0'.concat(b);
     }
-    console.log("a,b",a.length,b.length);
-    for(var i=lenA-1;i>-1;i--){
-        console.log('sum',sum);
-        sum =(a[i] ^ b[i] ^ carry ).toString().concat (sum);
-                 console.log('sum',sum);
-        carry = (parseInt(a[i])& parseInt(b[i]))| (parseInt(b[i])&carry)|(carry & parseInt(a[i]));
-         console.log('carry inside',carry);
+  } else if (lenB > lenA) {
+    for (let i = lenA; i < lenB; i++) {
+      a = '0'.concat(a);
+    }
+  }
+  console.log("a,b", a.length, b.length);
+  for (var i = lenA - 1; i > -1; i--) {
+    console.log('sum', sum);
+    sum = (a[i] ^ b[i] ^ carry).toString().concat(sum);
+    console.log('sum', sum);
+    carry = (parseInt(a[i]) & parseInt(b[i])) | (parseInt(b[i]) & carry) | (carry & parseInt(a[i]));
+    console.log('carry inside', carry);
 
-        lenA--;
-    }
-    console.log('carry',carry)
-    if(carry==1){
-        sum = '1'+sum;
-    }
-   return sum.toString();
+    lenA--;
+  }
+  console.log('carry', carry)
+  if (carry == 1) {
+    sum = '1' + sum;
+  }
+  return sum.toString();
 };
 
+var strStr = function (haystack, needle) {
+
+
+  let start = 0;
+  let lenH = haystack.length;
+  let lenN = needle.length;
+  if (lenN > lenH) {
+    return -1;
+  }
+  let j = 0;
+  while (start < lenN) {
+    for (let i = start; i < lenH; i++) {
+      if (j < lenN) {
+        j = j++;
+      }
+      if (j == lenN) {
+        return start;
+      }
+    }
+  }
+  return start;
+};
+/**
+ * reverse words without using extr space.Reverse all words first and then reverse them again word by word.
+*/
+var reverseWords = function (str) {
+  if (str.length !== 0) {
+    let j = str.length - 1;
+    let i = 0;
+    let end = 1;
+    _reverse(i, j);
+    console.log('str', str);
+    while (end <= j) {
+      if (str[end] == ' ') {
+        _reverse(i, end - 1);
+        i = end + 1;
+      }
+      if (end == j) {
+        _reverse(i, end);
+      }
+
+      end++;
+    }
+
+  }
+  function _reverse(beg, end) {
+    while (beg < end) {
+      let temp = str[beg];
+      str[beg] = str[end];
+      str[end] = temp;
+      beg++;
+      end--;
+    }
+  }
+
+};
+
+function giveSquares(n) {
+   let list = [];
+    while (Math.floor(Math.sqrt(n)) > 0)
+    { console.log(n);
+      list.push(Math.pow(Math.floor(Math.sqrt(n)),2));
+       n = n - (Math.floor(Math.sqrt(n)) * Math.floor(Math.sqrt(n)))
+      }
+  return list;
+  };
 
 let strProblem1 = new StringProblem(' ');
 
@@ -197,5 +263,9 @@ console.log(strProblem1.lengthOfLongestSubstring("pwwkew"));
 console.log(strProblem1.lengthOfLongestSubstring("dvdf"));
 console.log(strProblem1.lengthOfLongestSubstring("ohvhjdml"));
 console.log(strProblem1.lengthOfLongestSubstring("bbbbb"));
-console.log(addBinary("011","1"));
-
+console.log(addBinary("011", "1"));
+//console.log(strStr("hycghcy","cy"));
+let strReverse = ''.split('');
+reverseWords(strReverse);
+console.log('strReverse', strReverse);
+giveSquares(19);
