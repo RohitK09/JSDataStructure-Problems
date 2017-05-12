@@ -204,6 +204,14 @@ function findBiggestElemSmallerThanX(root,key){
     }
     return root;
 }
+
+var lowestCommonAncestorBST = function(root, p, q) {
+  //try to walk all the tree and till both are on same side ,
+    while((root.val -p.val) * (root.val -q.val) > 0){
+        root = p.val<root.val ? root.left :root.right;
+    }
+    return root;
+};
 //treeProblems.lca = lca;
 treeProblems.isBalanced = isBalanced;
 treeProblems.createMinBalancedSearchTree = createMinBalancedSearchTree;

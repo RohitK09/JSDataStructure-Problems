@@ -16,3 +16,10 @@ arr[i+1] will have the largest sum or not.
 		return max_so_far;
 	}
 
+* **Disjoint sets**
+	**can be used for finding cycle in a graph**
+	operations supported are : UNION,Find,MakeSet
+	* CREATE-SET(x) – creates a new set with one element {x}.
+	* _MERGE_-SETS(x, y) – merge into one set the set that contains element x and the set that contains element y (x and y are in different sets). The original sets will be destroyed.
+	* FIND-SET(x) – returns the representative or a pointer to the representative of the set that contains element x.
+
